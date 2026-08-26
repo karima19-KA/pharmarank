@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>Moteur de recommandation — MediRank</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main main-fill">
+    <div class="topbar">
+      <div>
+        <h1><span id="recruitmentIcon"></span> Moteur de recommandation de recrutement</h1>
+        <p class="subtitle">Identifiez, évaluez et classez les meilleurs talents grâce à notre IA.</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid kpi-grid-4" id="kpiGrid">
+      <div class="card loading">Chargement…</div>
+    </div>
+
+    <div class="fill-row">
+      <div class="card fill-col" style="flex:1.5 1 0">
+        <div class="section-title">
+          <span>👑 Classement des candidats</span>
+          <button class="section-link" id="voirToutBtn">Voir tout →</button>
+        </div>
+        <div class="chip-filter-bar" id="tierFilters"></div>
+        <div class="fill-table-area">
+          <table>
+            <thead>
+              <tr><th>Candidat</th><th>Poste</th><th>Pharmacie</th><th>Ville</th><th>Expérience</th><th>Score</th></tr>
+            </thead>
+            <tbody id="candTbody"><tr><td colspan="6" class="loading">Chargement…</td></tr></tbody>
+          </table>
+        </div>
+        <div class="table-footer" id="tableFooter"></div>
+      </div>
+
+      <div class="fill-col" style="gap:12px">
+        <div class="card fill-col" style="flex:1">
+          <div class="section-title">✦ Répartition par tier</div>
+          <div class="chart-wrap"><canvas id="tierChart"></canvas></div>
+        </div>
+        <div class="card fill-col" style="flex:1">
+          <div class="section-title">⚡ Qu'est-ce qui rend recrutable ?</div>
+          <div class="chart-wrap"><canvas id="importanceChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="detailOverlay" class="detail-overlay" style="display:none">
+      <div id="detailPanel" class="card detail-modal"></div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/recruitment.js"></script>
+</body>
+</html>

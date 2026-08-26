@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>Pharmacies — MediRank</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>Classement des pharmacies</h1>
+        <p class="subtitle">Score composite basé sur la taille, la présence LinkedIn et la complétude du profil</p>
+      </div>
+      <div class="searchbox">
+        <span id="searchIcon"></span> <input id="searchInput" placeholder="Rechercher une pharmacie…">
+      </div>
+    </div>
+
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="overflow-x:auto">
+        <table id="pharmaTable">
+          <thead>
+            <tr>
+              <th>#</th><th>Pharmacie</th><th>Secteur</th><th>Employés</th>
+              <th>Sites</th><th>Web</th><th>Score</th>
+            </tr>
+          </thead>
+          <tbody id="pharmaTbody">
+            <tr><td colspan="7" class="loading">Chargement…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footer" id="tableFooter"></div>
+    </div>
+
+    <!-- Detail drawer -->
+    <div id="detailPanel" style="display:none;margin-top:20px" class="card"></div>
+  </main>
+</div>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/pharmacies.js"></script>
+</body>
+</html>
