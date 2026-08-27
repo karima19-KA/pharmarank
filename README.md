@@ -1,5 +1,7 @@
 # MediRank — pharmacy ranking & recruitment dashboard
 
+**Live app:** https://pharmarank-production.up.railway.app/ (deployed on Railway)
+
 A dashboard for ranking pharmaceutical labs operating in Morocco and
 scoring candidates worth recruiting, built on top of the scraped
 LinkedIn dataset (`labos_linkedin_merged_clean.csv`,
@@ -21,7 +23,6 @@ LinkedIn dataset (`labos_linkedin_merged_clean.csv`,
 
 ```
 pharma-dashboard/
-├── run.sh                      # one command: installs deps + starts the app
 ├── backend/
 │   ├── requirements.txt
 │   ├── data/                   # the 3 CSVs live here
@@ -32,7 +33,7 @@ pharma-dashboard/
 │       ├── candidate_scoring.py# role-search candidate matching model
 │       ├── analytics.py        # dashboard chart aggregations
 │       ├── recommendation.py   # recruitment recommendation engine scoring
-│       └── assistant.py        # AI assistant (Claude API) context + call
+│       └── assistant.py        # AI assistant (Google Gemini API) context + call
 └── frontend/
     ├── index.html               # dashboard (KPIs, 6 charts, filters, export)
     ├── pharmacies.html          # full ranked pharmacy list + detail drawer
@@ -45,13 +46,19 @@ pharma-dashboard/
 
 ## Running it
 
+**Just use the live deployment** — https://pharmarank-production.up.railway.app/ — nothing to install.
+
+### Running it locally (development)
+
 ```bash
-./run.sh
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Then open **http://localhost:8000**. First run installs dependencies
-automatically; after that it just starts the server (`--reload` picks up
-code changes live).
+Then open **http://localhost:8000**. `--reload` picks up code changes live.
+On Windows PowerShell, run the same three commands from inside `backend/`
+(activate your venv first if you're using one).
 
 ### Enabling the AI assistant (optional)
 
@@ -63,10 +70,13 @@ server:
 
 ```bash
 export GEMINI_API_KEY=AIza...
-./run.sh
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 On Windows PowerShell, use `$env:GEMINI_API_KEY="AIza..."` instead.
+
+On the live Railway deployment, `GEMINI_API_KEY` is set under the
+service's **Variables** tab rather than exported in a terminal.
 
 Without it, the assistant still opens and replies, but tells you clearly
 that the key is missing rather than pretending to answer.
