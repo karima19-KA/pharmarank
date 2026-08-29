@@ -54,7 +54,7 @@ def build_context() -> str:
     return json.dumps(context, ensure_ascii=False, default=str)
 
 
-SYSTEM_PROMPT_TEMPLATE = """Tu es l'assistant intégré du tableau de bord MediRank, une application \
+SYSTEM_PROMPT_TEMPLATE = """Tu es l'assistant intégré du tableau de bord Pharank, une application \
 qui classe des pharmacies opérant au Maroc et des candidats à recruter, à partir de données \
 scrapées sur LinkedIn et cure.ma.
 

@@ -1,4 +1,4 @@
-# MediRank — pharmacy ranking & recruitment dashboard
+# Pharank — pharmacy ranking & recruitment dashboard
 
 **Live app:** https://pharmarank-production.up.railway.app/ (deployed on Railway)
 

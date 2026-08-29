@@ -94,7 +94,7 @@ function renderSidebar(active) {
   };
 
   sidebarEl.innerHTML = `
-    <div class="brand"><span class="dot"></span> <span class="brand-text">MediRank</span></div>
+    <div class="brand"><span class="dot"></span> <span class="brand-text">Pharank</span></div>
     ${SIDEBAR_GROUPS.map(group => `
       <div class="nav-group-label">
         <span class="full-label">${group.label}</span>
@@ -221,7 +221,7 @@ function renderAssistantWidget() {
   panel.className = "assistant-panel";
   panel.innerHTML = `
     <div class="assistant-header">
-      <span class="assistant-header-title">${icon("bot", 17)} Assistant MediRank</span>
+      <span class="assistant-header-title">${icon("bot", 17)} Assistant Pharank</span>
       <button class="close-btn" id="assistantClose">${icon("x", 15)}</button>
     </div>
     <div class="assistant-messages" id="assistantMessages"></div>
