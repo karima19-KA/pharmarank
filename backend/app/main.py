@@ -5,6 +5,12 @@ from collections import Counter
 from pathlib import Path
 from typing import Optional
 
+
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
+
+
+
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -23,7 +29,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+FRONTEND_DIR = Path(__file__).resolve().parents[2] / "frontend"
+app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
 def _clean(records: list[dict]) -> list[dict]:
     """Replace NaN/NaT with None and numpy scalar types with native Python
     types, by round-tripping through pandas' own (numpy-aware) JSON
