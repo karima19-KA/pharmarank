@@ -1,6 +1,6 @@
 # Pharank — pharmacy ranking & recruitment dashboard
 
-**Live app:** https://pharmarank-production.up.railway.app/ (deployed on Railway)
+**Live app:** https://pharmarank-production-3a37.up.railway.app/ (deployed on Railway)
 
 A dashboard for ranking pharmaceutical labs operating in Morocco and
 scoring candidates worth recruiting, built on top of the scraped
